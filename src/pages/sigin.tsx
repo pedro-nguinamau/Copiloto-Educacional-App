@@ -61,7 +61,8 @@ const formSchema = z.object({
       }
 
     return(<>
- <div className="container">
+<div className='sigin-content'>
+<div className="container">
     <img src="sglg.png" alt="Logo" className="logo" />
     <div className="form-container">
      <form onSubmit={handleSubmit(onSubmit)}>
@@ -89,6 +90,7 @@ const formSchema = z.object({
      {message && <p id='erro'>{message}</p>}
     </div>
     </div>
+</div>
     </>)
 
   }

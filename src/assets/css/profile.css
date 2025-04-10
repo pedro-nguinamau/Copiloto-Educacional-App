@@ -1,13 +1,14 @@
-/* Estilos gerais */
-body {
+
+ .container-profile {
     font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    margin: 0;
-    padding: 0;
+    background-color: hsl(0, 0%, 96%);
+    min-height: 100vh;
+  
+  
   }
   
   .profile-container {
-    max-width: 1200px;
+    max-width: 1000px;
     margin: 0 auto;
     padding: 20px;
     background-color: #fff;
@@ -23,17 +24,16 @@ body {
     color: #555;
     margin-bottom: 20px;
   }
-  
-  /* Grid de disciplinas */
+
   .disciplinas-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 20px;
   }
   
-  /* Cards de disciplinas */
+
   .disciplina-card {
-    background-color: #1a1a1a; /* Preto brilhante */
+    background-color: #1a1a1a; 
     color: #fff;
     padding: 20px;
     border-radius: 8px;
@@ -47,7 +47,7 @@ body {
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
   }
   
-  /* Responsividade */
+
   @media (max-width: 768px) {
     .disciplinas-grid {
       grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));

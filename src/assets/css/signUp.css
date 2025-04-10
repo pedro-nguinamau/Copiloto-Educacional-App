@@ -3,23 +3,21 @@
     padding: 0;
     box-sizing: border-box;
   }
-  
-  body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f7fa;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-  }
-  
+ .sigin-content {
+  display: flex;
+  place-items: center;
+  min-height: 100vh;
+
+ }
   .container {
+   
     display: flex;
     align-items: center;
     background: #fff;
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 0 auto;
   }
   
   .form-container {

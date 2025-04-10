@@ -53,6 +53,7 @@ const SignUp: React.FC = () => {
   };
 
   return (
+    <div className='sigin-content'>
     <div className="container">
     <img src="sglg.png" alt="Logo" className="logo" />
     <div className="form-container">
@@ -103,11 +104,12 @@ const SignUp: React.FC = () => {
             {...register('password')}
           />
           {errors.password && <span>{errors.password.message}</span>}
-          <Link to='/login'>Entrar</Link>
+          <Link to='/'>Entrar</Link>
 
           <button type="submit">Enviar</button>
     </form>
 
+    </div>
     </div>
     </div>
   );

@@ -2,6 +2,7 @@
 import { SignUp } from './pages/signUp';
 import Profile from './pages/profile';
 import { SingIN } from './pages/sigin';
+import { Chatjs } from './pages/chat';
 
 
 function App () {
@@ -11,7 +12,8 @@ function App () {
         <Routes>
           <Route path='/signUp' element= {<SignUp />} />
           <Route path="/profile/:id" element={<Profile />}/>
-          <Route path='/login' element={<SingIN />}/>
+          <Route path='/' element={<SingIN />}/>
+          <Route path='/chat/:id' element={<Chatjs />}/>
         </Routes>
       </Router> 
     </>
