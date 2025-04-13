@@ -106,7 +106,7 @@ const SignUp: React.FC = () => {
           {errors.password && <span>{errors.password.message}</span>}
           <Link to='/'>Entrar</Link>
 
-          <button type="submit">Enviar</button>
+          <button type="submit" id='btn-ini'>Enviar</button>
     </form>
 
     </div>

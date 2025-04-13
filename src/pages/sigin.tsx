@@ -85,7 +85,7 @@ const formSchema = z.object({
           />
           <Link to='/signUp'>Registrar-me</Link>
           {errors.password && <span>{errors.password.message}</span>}
-          <button type="submit">Enviar</button>
+          <button type="submit" id='btn-ini'>Enviar</button>
      </form>
      {message && <p id='erro'>{message}</p>}
     </div>

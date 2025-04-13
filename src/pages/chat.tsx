@@ -3,53 +3,50 @@ import { useLocation } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import '../assets/css/chat.css'
 import { Messages } from "../components/UI/messages";
-import { useForm } from "react-hook-form";
-import {  z } from "zod";
+
 import axios from "axios";
-import { useRef } from "react";
-import { zodResolver } from "@hookform/resolvers/zod";
+import React, { useRef, useState, FormEvent } from "react";
 
-const schemaMessage = z.object({
-    conteudo: z.string({ message: 'Informe a questão'})
-})
+// import { LuArrowBigLeft } from "react-icons/lu";
+// import { LuArchive } from "react-icons/lu";
+import { IoApps } from "react-icons/io5";
+import { LuAlignLeft } from "react-icons/lu";
 
-type ConteudoData = z.infer<typeof schemaMessage>;
+// const schemaMessage = z.object({
+//     conteudo: z.string({ message: 'Informe a questão'})
+// })
+
+// type ConteudoData = z.infer<typeof schemaMessage>;
 const Chatjs = () => {
     const location = useLocation();
     const nome = location.state?.nome ;
     const id = location.state?.id;
     const chatid = location.state?.chatid;
    const navigate = useNavigate();
-   const textareaRef = useRef<HTMLTextAreaElement | null>(null);
+ 
+    const [conteudo, setConteudo] = useState<string>('')
 
-   const { 
-    register,
-    handleSubmit,
-
-   } = useForm<ConteudoData>({
-    resolver: zodResolver(schemaMessage)
-   })
  
    const voltar = () => {
     navigate(`/profile/${id}`)
 
    }
-   const onSubmit = async (conteudo: ConteudoData) => {
-
+   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
+  
+  e.preventDefault()
     try {
             const res  = await axios.post('http://127.0.0.1:3333/messages', 
               {
-                
                     chatId: chatid,  // Note a mudança de ChatId para chatId
                     role: 'user',
-                    conteudo: conteudo.conteudo,
+                    conteudo: conteudo,
                     nomeDisciplina: nome
                 
-               
               })
 
             if(res.status === 200) {
                 console.log("OK")
+                setConteudo('')
             }
 
         } catch (error) {
@@ -69,18 +66,21 @@ const Chatjs = () => {
 
     return (
         <div className="chat-container">
-            {/* Barra Lateral */}
-            <aside className="sidebar">
-                <h2>Opções</h2>
-                <button className="sidebar-btn" onClick={() => voltar()}>Ir para o Menu</button>
-                <button className="sidebar-btn">Ver Mensagens</button>              
-            </aside>
+          
+        
 
             {/* Conteúdo do Chat */}
             <div className="chat-main">
                 {/* Barra Superior Fixa */}
                 <div className="chat-header">
+                <div className="logo">
+                <img id="bar-icon" src="/Camada 2.png" alt="" />
+                </div>
                     <h1>Assistente de Disciplina: {nome}</h1>
+                    <div className="nav-btn">
+                    <button className="sidebar-btn" onClick={() => voltar()}><IoApps  /><span>Menu</span></button>
+                    <button className="sidebar-btn"><LuAlignLeft /> <span>Arquivo</span></button>    
+                    </div>
                 </div>
 
                 {/* Área de Mensagens (com scroll) */}
@@ -91,21 +91,19 @@ const Chatjs = () => {
 
                 {/* Campo de Mensagem */}
                 
-                <form onSubmit={handleSubmit(onSubmit)} className="form">
+                <form onSubmit={handleSubmit} className="form">
                          <div className="elemet-form">
                          <textarea
                          
                             onInput={handleInput}
                             placeholder="Digite sua mensagem..."
-                            {...register('conteudo')}
+                            value={conteudo}
+                            onChange={(e) => setConteudo(e.target.value)}
 
-                            ref={(el) => {
-                                register("conteudo").ref(el);
-                                textareaRef.current = el;
-                              }}
+                         
                             />
                             <div>
-                            <button type="submit">Enviar</button> 
+                               <button type="submit" id="btn-send"><img src="/btn.png" alt="" /></button> 
                             </div>
                          </div>
                     </form>

@@ -1,4 +1,4 @@
-
+/* 
  .container-profile {
     font-family: Arial, sans-serif;
     background-color: hsl(0, 0%, 96%);
@@ -58,4 +58,196 @@
     .disciplinas-grid {
       grid-template-columns: 1fr;
     }
+  } */
+
+
+  /* Estilos modernos simplificados */
+/* Variáveis */
+
+
+/* Variáveis */
+:root {
+  --black: #1a1a1a;
+  --white: #fff;
+  --gray: #e0e0e0;
+  --light-gray: #f5f5f5;
+  --accent: #646464;
+  --transition: all 0.3s ease;
+}
+
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', 'Segoe UI', sans-serif;
+  line-height: 1.6;
+  background-color: var(--white);
+}
+
+/* Tema claro */
+.light-theme {
+  background-color: var(--white);
+  min-height: 100vh;
+  color: var(--black);
+}
+
+.loading-screen {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-size: 1.2rem;
+  color: var(--black);
+}
+
+/* Container principal */
+.profile-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+/* Cabeçalho */
+.profile-header {
+  margin-bottom: 2rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--gray);
+}
+
+.profile-header h1 {
+  font-size: 2.2rem;
+  font-weight: 400;
+  margin-bottom: 1.5rem;
+  color: var(--black);
+}
+
+.profile-header h1 span {
+  font-weight: 600;
+}
+
+.user-meta {
+  display: flex;
+  gap: 2rem;
+}
+
+.meta-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.meta-label {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #666;
+  margin-bottom: 0.3rem;
+}
+
+.meta-value {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: var(--black);
+}
+
+/* Seção de disciplinas */
+.disciplinas-section {
+  margin-top: 2rem;
+}
+
+.disciplinas-section h2 {
+  font-size: 1.5rem;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+  color: var(--black);
+}
+
+.section-description {
+  color: #666;
+  margin-bottom: 2rem;
+  font-size: 0.95rem;
+}
+
+/* Grid de disciplinas */
+.disciplinas-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.disciplina-card {
+  background-color: var(--white);
+  border: 1px solid var(--gray);
+  border-radius: 8px;
+  padding: 1.8rem;
+  cursor: pointer;
+  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+  height: 120px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.disciplina-card h3 {
+  font-weight: 500;
+  font-size: 1.1rem;
+  transition: var(--transition);
+  color: var(--black);
+}
+
+.card-hover-effect {
+  position: absolute;
+  bottom: -50px;
+  left: 0;
+  width: 100%;
+  padding: 1rem;
+  background-color: var(--black);
+  color: var(--white);
+  text-align: center;
+  font-weight: 500;
+  transition: var(--transition);
+}
+
+.disciplina-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  border-color: var(--accent);
+} 
+
+.disciplina-card:hover h3 {
+  transform: translateY(-20px);
+  color: var(--accent);
+}
+
+.disciplina-card:hover .card-hover-effect {
+  bottom: 0;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .profile-container {
+    padding: 1.5rem;
   }
+  
+  .user-meta {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .disciplinas-grid {
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  }
+}
+
+@media (max-width: 480px) {
+  .profile-header h1 {
+    font-size: 1.8rem;
+  }
+  
+  .disciplinas-grid {
+    grid-template-columns: 1fr;
+  }
+}

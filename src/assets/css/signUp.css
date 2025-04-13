@@ -46,7 +46,7 @@
     background-color: transparent;
   }
   
-  input, select,button {
+  input, select, #btn-ini {
     width: 100%;
     padding: 10px;
     border: 1px solid #000;
@@ -60,7 +60,7 @@
     box-shadow: 0 0 5px rgba(58, 141, 184, 0.5);
   }
   
-  button {
+  #btn-ini {
     background-color: #000;
     color: #fff;
     font-weight: bold;
